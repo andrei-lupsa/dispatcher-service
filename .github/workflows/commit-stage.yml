@@ -36,12 +36,12 @@ jobs:
         if: success() || failure()
         with:
           sarif_file: ${{ steps.scan.outputs.sarif }}
-#      - name: Validate Kubernetes manifests
-#        uses: stefanprodan/kube-tools@v1
-#        with:
-#          kubeconform: 0.6.7
-#          command: |
-#            kubeconform -verbose -strict -kubernetes-version 1.30.4 k8s
+      - name: Validate Kubernetes manifests
+        uses: stefanprodan/kube-tools@v1
+        with:
+          kubeconform: 0.6.7
+          command: |
+            kubeconform -verbose -strict -kubernetes-version 1.30.4 k8s
 
   package:
     name: Package and Publish
