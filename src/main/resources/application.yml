@@ -52,3 +52,6 @@ management:
       show-components: always
       probes:
         enabled: true #alway enable readiness and liveness probes, not just for Kubernetes
+  metrics:
+    tags:
+      application: ${spring.application.name}
